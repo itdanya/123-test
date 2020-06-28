@@ -15,9 +15,10 @@ pipeline {
 
 
     stage('Deploy App') {
-      sh script: nginx.yaml
+      steps {
+                sh script: nginx.yaml
     }
-
+    }
   }
 
 
