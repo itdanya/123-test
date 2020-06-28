@@ -1,11 +1,12 @@
 pipeline {
 
-
-  agent { label 'kubepod' }
-
+  kubernetes {
+        label podlabel
+        yaml """
+        
+"""        
 
   stages {
-
 
     stage('Checkout Source') {
       steps {
@@ -13,10 +14,9 @@ pipeline {
       }
     }
 
-
     stage('Deploy App') {
       steps {
-         kubernetesDeploy(configs: "prob-nginx.yaml", kubeconfigId: "mykubeconfig")
+         echo 'done!'
     }
     }
   }
