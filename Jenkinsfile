@@ -16,7 +16,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-                echo 'deploying the applycation'
+                sh 'kubectl apply -f nginx.yaml'
     }
     }
   }
