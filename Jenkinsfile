@@ -16,7 +16,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-                sh script: nginx.yaml
+                kubernetesDeploy(configs: "nginx.yaml")
     }
     }
   }
