@@ -1,7 +1,17 @@
 pipeline {
 
-  kubernetes {
-        label podlabel
+  agent { label 'kubepod' }
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/itdanya/skb-project.git', branch:'task-123'
+      }
+    }
+
+    stage('Deploy App') {
+      steps {
         yaml """
 kind: Deployment
 metadata:
@@ -40,20 +50,7 @@ spec:
     app: web
   type: NodePort        
 """        
-
-  stages {
-
-    stage('Checkout Source') {
-      steps {
-        git url:'https://github.com/itdanya/skb-project.git', branch:'task-123'
-      }
-    }
-
-    stage('Deploy App') {
-      steps {
-         echo 'done!'
     }
     }
   }
-  }
-}
+
