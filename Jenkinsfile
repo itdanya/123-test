@@ -15,9 +15,9 @@ pipeline {
 
 
     stage('Deploy App') {
-  
-        sh "kubectl cluster-info"
- 
+      try {
+        sh 'kubectl cluster-info'
+      }
     }
 
 
