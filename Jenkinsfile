@@ -15,11 +15,8 @@ pipeline {
 
 
     stage('Deploy App') {
-      try {
-        sh 'kubectl cluster-info'
-      }
+      sh script: nginx.yaml
     }
-
 
   }
 
