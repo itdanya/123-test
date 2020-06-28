@@ -16,9 +16,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-        script {
-          kubernetesDeploy(configs: "nginx.yaml", kubeconfigId: "123")
-        }
+        sh "kubectl cluster-info"
       }
     }
 
