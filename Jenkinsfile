@@ -13,7 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          sh 'kubectl apply -f prob-nginx.yaml'
+          kubernetesDeploy(configs: "nginx.yaml", kubeconfigId: "mykubeconfig")
     }
     }
   }
