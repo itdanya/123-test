@@ -13,7 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          sh '$(which kubectl) apply -f prob-nginx.yaml'
+          sh '/usr/bin/kubectl apply -f prob-nginx.yaml'
     }
     }
   }
